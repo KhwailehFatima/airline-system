@@ -1,0 +1,24 @@
+{
+  "name": "airline-system",
+  "version": "1.0.0",
+  "description": "Airline system",
+  "main": "events.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhwailehFatima/airline-system.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KhwailehFatima/airline-system/issues"
+  },
+  "homepage": "https://github.com/KhwailehFatima/airline-system#readme",
+  "dependencies": {
+    "@ngneat/falso": "^6.1.0",
+    "uuid": "^9.0.0"
+  }
+}
