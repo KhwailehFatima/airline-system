@@ -1,9 +1,7 @@
 'use strict'
 
-const events = require('./events');
-
-require('./pilot');
-require('./system');
+const io = require('socket.io-client');
+const socket = io.connect('http://localhost:3000'); 
 
 const { randAddress, randFullName } = require('@ngneat/falso');
 const { v4: uuidv4 } = require('uuid');
@@ -16,12 +14,14 @@ setInterval(() => {
         destination: `${country}, ${city}`,
         pilot: randFullName()
     }
+    
     console.log(`Manager: A filght with ID ${details.flightID} has been scheduled`);
-    events.emit('new-flight', details);
+    socket.emit('new-flight', details);
+    console.log(`Manager: we’re greatly thankful for the amazing flight, ${details.pilot}`)
 
 
 }, 10000);
 
-events.on('arrived', (details) => {
+socket.on('arrived', (details) => {
     console.log(`Manager: we’re greatly thankful for the amazing flight, ${details.pilot}`)
 });
